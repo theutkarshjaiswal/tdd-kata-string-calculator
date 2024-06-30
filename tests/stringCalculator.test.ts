@@ -23,4 +23,10 @@ describe("String Calculator", () => {
    test("should return the sum of unknown amount of numbers", () => {
      expect(add("10,20,30,40,50,60")).toBe(210);
    });
+
+
+  test("should handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
+    expect(add("4\n5\n6")).toBe(15);
+  });
 });
