@@ -19,6 +19,10 @@ export function add(numbers: string): number {
   }
 
   const numList = numbers.split(delimiter);
+  const negatives = numList.filter((num) => parseInt(num) < 0);
+  if (negatives.length > 0) {
+    throw new Error(`negative numbers not allowed ${negatives.join(",")}`);
+  }
   return numList
     .filter((num) => parseInt(num) <= 1000)
     .reduce((sum, num) => sum + (parseInt(num) || 0), 0);
