@@ -51,4 +51,20 @@ describe("String Calculator", () => {
       }
     }
   });
+   test("should ignore numbers bigger than 1000", () => {
+     expect(add("2,1001")).toBe(2);
+     expect(add("1000,1001,2")).toBe(1002);
+   });
+
+   test("should handle delimiters of any length", () => {
+     expect(add("//[***]\n1***2***3")).toBe(6);
+   });
+
+   test("should handle multiple delimiters", () => {
+     expect(add("//[*][%]\n1*2%3")).toBe(6);
+   });
+
+   test("should handle multiple delimiters with length longer than one char", () => {
+     expect(add("//[***][%%%]\n1***2%%%3")).toBe(6);
+   });
 });
