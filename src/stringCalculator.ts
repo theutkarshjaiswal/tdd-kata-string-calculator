@@ -3,7 +3,7 @@ export function add(numbers: string): number {
     return 0;
   }
 
-    let delimiter = /,|\n/;
+  let delimiter = /,|\n/;
 
   const numList = numbers.split(delimiter);
   return numList
